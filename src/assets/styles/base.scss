@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,8 +23,19 @@ html {
   display: flex;
   flex-direction: column;
 }
+.flex-auto {
+  flex: auto;
+}
+
+.flex-none {
+  flex: none;
+}
 
 .flex-center {
   justify-content: center;
   align-items: center;
+}
+
+.relative {
+  position: relative;
 }

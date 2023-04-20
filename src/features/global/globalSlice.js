@@ -5,6 +5,7 @@ const globalSlice = createSlice({
   initialState: {
     globalLoading: false,
     globalError: false,
+    globalAbort: false,
   },
   reducers: {
     openGlobalLoading: (state) => {
@@ -19,6 +20,12 @@ const globalSlice = createSlice({
     closeGlobalError: (state) => {
       state.globalError = false;
     },
+    openGlobalAbort: (state) => {
+      state.globalAbort = true;
+    },
+    closeGlobalAbort: (state) => {
+      state.globalAbort = false;
+    },
   },
 });
 
@@ -27,5 +34,7 @@ export const {
   closeGlobalLoading,
   openGlobalError,
   closeGlobalError,
+  openGlobalAbort,
+  closeGlobalAbort,
 } = globalSlice.actions;
 export default globalSlice.reducer;

@@ -4,13 +4,13 @@ class Test {
     this.baseUrl = baseUrl;
   }
 
-  getSuccessList() {
-    const url = this.baseUrl + "/getSuccessList";
+  getUserList() {
+    const url = this.baseUrl + "/getUserList";
     return getRequest(url);
   }
 
-  getError() {
-    const url = this.baseUrl + "/getErrorList";
+  getUserInfo() {
+    const url = this.baseUrl + "/getUserInfo";
     return getRequest(url);
   }
 }
