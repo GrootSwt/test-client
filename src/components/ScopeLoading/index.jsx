@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import styles from "./index.module.scss";
@@ -12,14 +12,32 @@ const Loading = (
   />
 );
 /**
- * 局部区域loading效果，父元素样式需要设置position: relative
  * @param {{loading: boolean}} props
  * @returns
  */
 export default function ScopeLoading({ loading }) {
+  const parentElRef = useRef();
+  const currentElRef = useRef();
+  useEffect(() => {
+    if (loading) {
+      if (currentElRef.current?.parentNode) {
+        parentElRef.current = currentElRef.current.parentNode;
+        const position = parentElRef.current.style.position;
+        if (!position || position === "static") {
+          parentElRef.current.classList.add("scope-relative");
+        }
+        parentElRef.current.classList.add("scope-hidden");
+      }
+    }
+    return () => {
+      parentElRef.current &&
+        parentElRef.current.classList.remove("scope-relative", "scope-hidden");
+    };
+  }, [loading]);
   return (
     loading && (
       <div
+        ref={currentElRef}
         className={`flex-row flex-center ${styles["scope-loading-container"]}`}
       >
         <Spin indicator={Loading}></Spin>

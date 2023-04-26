@@ -1,0 +1,25 @@
+.home-container {
+  height: inherit;
+  .refresh-btn {
+    margin-top: 1em;
+  }
+  .user-info {
+    min-height: 300px;
+    max-width: 520px;
+    border-radius: 1em;
+    background: bisque;
+  }
+  .user-list {
+    margin-top: 1em;
+    min-height: 300px;
+    max-width: 520px;
+    border-radius: 1em;
+    background: gray;
+    .user-item {
+      background: pink;
+      & + .user-item {
+        margin-top: 1em;
+      }
+    }
+  }
+}

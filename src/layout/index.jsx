@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import styles from "./index.module.scss";
 
 export default function Layout() {
-  const globalLoading = useSelector((state) => state.global.globalLoading);
+  const globalLoading = useSelector((state) => state.common.globalLoading);
   return (
     <>
       <section className={`flex-column ${styles["layout-container"]}`}>

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import globalReducer from "../features/global/globalSlice";
+import commonReducer from "./features/commonSlice";
 
 export default configureStore({
   reducer: {
-    global: globalReducer,
+    common: commonReducer,
   },
 });

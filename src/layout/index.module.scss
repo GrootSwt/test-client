@@ -1,23 +1,11 @@
 .layout-container {
   height: 100%;
-  .header {
-    background-color: red;
-    height: 60px;
-  }
   .main {
-    .aside {
-      background-color: red;
-      width: 200px;
-      height: 100%;
-    }
     .content {
       height: 100%;
       overflow-y: auto;
+      background: rgb(59, 129, 140);
+      padding: 1em;
     }
-  }
-
-  .footer {
-    background-color: red;
-    height: 60px;
   }
 }

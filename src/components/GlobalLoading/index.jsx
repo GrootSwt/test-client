@@ -14,7 +14,7 @@ const Loading = (
 export default function GlobalLoading() {
   return (
     <div
-      className={`flex-row flex-center ${styles["global-loading-container"]}`}
+      className={`flex-row flex-center fixed ${styles["global-loading-container"]}`}
     >
       <Spin indicator={Loading}></Spin>
     </div>
