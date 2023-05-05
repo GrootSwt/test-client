@@ -3,62 +3,62 @@ import { createSlice } from "@reduxjs/toolkit";
 const commonSlice = createSlice({
   name: "common",
   initialState: {
-    globalLoading: false,
-    globalError: false,
-    globalAbort: false,
+    enableGlobalLoading: false,
+    enableDefaultErrorHandler: false,
+    enableAbortRequest: false,
   },
   reducers: {
     openGlobalLoading: (state) => {
-      state.globalLoading = true;
+      state.enableGlobalLoading = true;
     },
     closeGlobalLoading: (state) => {
-      state.globalLoading = false;
+      state.enableGlobalLoading = false;
     },
-    openGlobalError: (state) => {
-      state.globalError = true;
+    openDefaultErrorHandler: (state) => {
+      state.enableDefaultErrorHandler = true;
     },
-    closeGlobalError: (state) => {
-      state.globalError = false;
+    closeDefaultErrorHandler: (state) => {
+      state.enableDefaultErrorHandler = false;
     },
-    openGlobalAbort: (state) => {
-      state.globalAbort = true;
+    openEnableAbortRequest: (state) => {
+      state.enableAbortRequest = true;
     },
-    closeGlobalAbort: (state) => {
-      state.globalAbort = false;
+    closeEnableAbortRequest: (state) => {
+      state.enableAbortRequest = false;
     },
-    openGlobalLoadingAndErrorAndAbort: (state) => {
-      state.globalLoading = true;
-      state.globalError = true;
-      state.globalAbort = true;
+    openGlobalLoadingDefaultErrorHandlerAbortRequest: (state) => {
+      state.enableGlobalLoading = true;
+      state.enableDefaultErrorHandler = true;
+      state.enableAbortRequest = true;
     },
-    closeGlobalLoadingAndErrorAndAbort: (state) => {
-      state.globalLoading = false;
-      state.globalError = false;
-      state.globalAbort = false;
+    closeGlobalLoadingDefaultErrorHandlerAbortRequest: (state) => {
+      state.enableGlobalLoading = false;
+      state.enableDefaultErrorHandler = false;
+      state.enableAbortRequest = false;
     },
-    openGlobalLoadingAndAbort: (state) => {
-      state.globalLoading = true;
-      state.globalAbort = true;
+    openGlobalLoadingAndAbortRequest: (state) => {
+      state.enableGlobalLoading = true;
+      state.enableAbortRequest = true;
     },
-    closeGlobalLoadingAndAbort: (state) => {
-      state.globalLoading = false;
-      state.globalAbort = false;
+    closeGlobalLoadingAndAbortRequest: (state) => {
+      state.enableGlobalLoading = false;
+      state.enableAbortRequest = false;
     },
-    openGlobalLoadingAndError: (state) => {
-      state.globalLoading = true;
-      state.globalError = true;
+    openGlobalLoadingDefaultErrorHandler: (state) => {
+      state.enableGlobalLoading = true;
+      state.enableDefaultErrorHandler = true;
     },
-    closeGlobalLoadingAndError: (state) => {
-      state.globalLoading = false;
-      state.globalError = false;
+    closeGlobalLoadingAndDefaultErrorHandler: (state) => {
+      state.enableGlobalLoading = false;
+      state.enableDefaultErrorHandler = false;
     },
-    openGlobalErrorAndAbort: (state) => {
-      state.globalError = true;
-      state.globalAbort = true;
+    openDefaultErrorHandlerAbortRequest: (state) => {
+      state.enableDefaultErrorHandler = true;
+      state.enableAbortRequest = true;
     },
-    closeGlobalErrorAndAbort: (state) => {
-      state.globalError = false;
-      state.globalAbort = false;
+    closeDefaultErrorHandlerAbortRequest: (state) => {
+      state.enableDefaultErrorHandler = false;
+      state.enableAbortRequest = false;
     },
   },
 });
@@ -66,11 +66,11 @@ const commonSlice = createSlice({
 export const {
   openGlobalLoading,
   closeGlobalLoading,
-  openGlobalError,
-  closeGlobalError,
-  openGlobalAbort,
-  closeGlobalAbort,
-  openGlobalLoadingAndErrorAndAbort,
-  closeGlobalLoadingAndErrorAndAbort,
+  openDefaultErrorHandler,
+  closeDefaultErrorHandler,
+  openEnableAbortRequest,
+  closeEnableAbortRequest,
+  openGlobalLoadingDefaultErrorHandlerAbortRequest,
+  closeGlobalLoadingDefaultErrorHandlerAbortRequest,
 } = commonSlice.actions;
 export default commonSlice.reducer;

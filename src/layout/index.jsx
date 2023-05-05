@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import styles from "./index.module.scss";
 
 export default function Layout() {
-  const globalLoading = useSelector((state) => state.common.globalLoading);
+  const enableGlobalLoading = useSelector(
+    (state) => state.common.enableGlobalLoading
+  );
   return (
     <>
       <section className={`flex-column ${styles["layout-container"]}`}>
@@ -18,7 +20,7 @@ export default function Layout() {
         </main>
         <footer className={`flex-none ${styles["footer"]}`}></footer>
       </section>
-      {globalLoading && <GlobalLoading />}
+      {enableGlobalLoading && <GlobalLoading />}
     </>
   );
 }

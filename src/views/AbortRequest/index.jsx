@@ -3,8 +3,8 @@ import service from "../../api/service";
 import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  openGlobalLoadingAndErrorAndAbort,
-  closeGlobalLoadingAndErrorAndAbort,
+  openGlobalLoadingDefaultErrorHandlerAbortRequest,
+  closeGlobalLoadingDefaultErrorHandlerAbortRequest,
 } from "../../store/features/commonSlice";
 import { Link } from "react-router-dom";
 import Button from "antd/lib/button";
@@ -12,7 +12,9 @@ import { ReloadOutlined } from "@ant-design/icons";
 
 export default function AbortRequest() {
   const dispatch = useDispatch();
-  const globalLoading = useSelector((state) => state.common.globalLoading);
+  const enableGlobalLoading = useSelector(
+    (state) => state.common.enableGlobalLoading
+  );
 
   const [userList, setUserList] = useState([]);
   const [userInfo, setUserInfo] = useState();
@@ -27,7 +29,7 @@ export default function AbortRequest() {
   };
 
   const init = async () => {
-    dispatch(openGlobalLoadingAndErrorAndAbort());
+    dispatch(openGlobalLoadingDefaultErrorHandlerAbortRequest());
     try {
       const results = await Promise.all([getUserInfo(), getUserList()]);
       setUserInfo(results[0].data);
@@ -35,7 +37,7 @@ export default function AbortRequest() {
     } catch (error) {
       // handler
     } finally {
-      dispatch(closeGlobalLoadingAndErrorAndAbort());
+      dispatch(closeGlobalLoadingDefaultErrorHandlerAbortRequest());
     }
   };
 
@@ -57,7 +59,7 @@ export default function AbortRequest() {
       <Button
         onClick={refresh}
         icon={<ReloadOutlined />}
-        loading={globalLoading}
+        loading={enableGlobalLoading}
         className={`${styles["refresh-btn"]}`}
       >
         refresh
